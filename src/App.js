@@ -16,7 +16,7 @@ function App() {
   const onSubmitBook = async e => {
     e.preventDefault()
     const {title, author, description} = e.target
-    await axios.post('https://mighty-bastion-25943.herokuapp.com/api/books', {
+    await axios.post('https://cors-anywhere.herokuapp.com/https://mighty-bastion-25943.herokuapp.com/api/books', {
       title: title.value,
       author: author.value,
       description: description.value,
@@ -29,7 +29,7 @@ function App() {
 
   // Read
   const getBooks = async () => {
-    const res = await axios.get('https://mighty-bastion-25943.herokuapp.com/api/books')
+    const res = await axios.get('https://cors-anywhere.herokuapp.com/https://mighty-bastion-25943.herokuapp.com/api/books')
     const data = res.data
 
     console.log("XXX: ", data)
@@ -41,7 +41,7 @@ function App() {
   const onSubmitEdits = async (e, id) => {
     e.preventDefault()
     const {title, author, description} = e.target
-    await axios.post(`https://mighty-bastion-25943.herokuapp.com/api/books/update/${id}`, {
+    await axios.post(`https://cors-anywhere.herokuapp.com/https://mighty-bastion-25943.herokuapp.com/api/books/update/${id}`, {
       title: title.value,
       author: author.value,
       description: description.value,
@@ -54,7 +54,7 @@ function App() {
 const deleteBook = async bookToDelete => {
   await axios({
     method: 'DELETE',
-    url: 'https://mighty-bastion-25943.herokuapp.com/api/books',
+    url: 'https://cors-anywhere.herokuapp.com/https://mighty-bastion-25943.herokuapp.com/api/books',
     data: {
       id: bookToDelete,
     },
